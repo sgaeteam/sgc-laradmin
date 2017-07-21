@@ -84,12 +84,12 @@ class DatabaseSeeder extends Seeder
 		
 		$laconfig = new LAConfigs;
 		$laconfig->key = "sitename";
-		$laconfig->value = "LaraAdmin 1.0";
+		$laconfig->value = "SgcAdmin 1.0";
 		$laconfig->save();
 
 		$laconfig = new LAConfigs;
 		$laconfig->key = "sitename_part1";
-		$laconfig->value = "Lara";
+		$laconfig->value = "Sgc";
 		$laconfig->save();
 		
 		$laconfig = new LAConfigs;
@@ -99,7 +99,7 @@ class DatabaseSeeder extends Seeder
 		
 		$laconfig = new LAConfigs;
 		$laconfig->key = "sitename_short";
-		$laconfig->value = "LA";
+		$laconfig->value = "GC";
 		$laconfig->save();
 
 		$laconfig = new LAConfigs;
@@ -111,7 +111,7 @@ class DatabaseSeeder extends Seeder
 		
 		$laconfig = new LAConfigs;
 		$laconfig->key = "sidebar_search";
-		$laconfig->value = "1";
+		$laconfig->value = "0";
 		$laconfig->save();
 		
 		$laconfig = new LAConfigs;
@@ -131,24 +131,24 @@ class DatabaseSeeder extends Seeder
 		
 		$laconfig = new LAConfigs;
 		$laconfig->key = "show_rightsidebar";
-		$laconfig->value = "1";
+		$laconfig->value = "0";
 		$laconfig->save();
 		
 		$laconfig = new LAConfigs;
 		$laconfig->key = "skin";
-		$laconfig->value = "skin-white";
+		$laconfig->value = "skin-blue";
 		$laconfig->save();
 		
 		$laconfig = new LAConfigs;
 		$laconfig->key = "layout";
-		$laconfig->value = "fixed";
+		$laconfig->value = "layout-top-nav";
 		$laconfig->save();
 
 		// Admin Configurations
 
 		$laconfig = new LAConfigs;
 		$laconfig->key = "default_email";
-		$laconfig->value = "test@example.com";
+		$laconfig->value = "sgaeteam@gmail.com";
 		$laconfig->save();
 		
 		$modules = Module::all();
