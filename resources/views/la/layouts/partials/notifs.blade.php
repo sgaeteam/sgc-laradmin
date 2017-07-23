@@ -10,7 +10,7 @@
 						<span class="label label-success">4</span>
 					</a>
 					<ul class="dropdown-menu">
-						<li class="header">You have 4 messages</li>
+						<li class="header">Voc&ecirc; tem 4 mensagens</li>
 						<li>
 							<!-- inner menu: contains the messages -->
 							<ul class="menu">
@@ -31,7 +31,7 @@
 								</li><!-- end message -->
 							</ul><!-- /.menu -->
 						</li>
-						<li class="footer"><a href="#">See All Messages</a></li>
+						<li class="footer"><a href="#">Veja todas as mensagens</a></li>
 					</ul>
 				</li><!-- /.messages-menu -->
 				@endif
@@ -44,7 +44,7 @@
 						<span class="label label-warning">10</span>
 					</a>
 					<ul class="dropdown-menu">
-						<li class="header">You have 10 notifications</li>
+						<li class="header">Voc&ecirc; tem 10 notifica&ccedil;&otilde;es</li>
 						<li>
 							<!-- Inner Menu: contains the notifications -->
 							<ul class="menu">
@@ -55,7 +55,7 @@
 								</li><!-- end notification -->
 							</ul>
 						</li>
-						<li class="footer"><a href="#">View all</a></li>
+						<li class="footer"><a href="#">Veja todas</a></li>
 					</ul>
 				</li>
 				@endif
@@ -68,7 +68,7 @@
 						<span class="label label-danger">9</span>
 					</a>
 					<ul class="dropdown-menu">
-						<li class="header">You have 9 tasks</li>
+						<li class="header">Voc&ecirc; tem 9 tarefas</li>
 						<li>
 							<!-- Inner menu: contains the tasks -->
 							<ul class="menu">
@@ -91,7 +91,7 @@
 							</ul>
 						</li>
 						<li class="footer">
-							<a href="#">View all tasks</a>
+							<a href="#">Veja todas as tarefas</a>
 						</li>
 					</ul>
 				</li>
@@ -118,7 +118,7 @@
 									<?php
 									$datec = Auth::user()['created_at'];
 									?>
-									<small>Member since <?php echo date("M. Y", strtotime($datec)); ?></small>
+									<small>Membro desde <?php echo date("M. Y", strtotime($datec)); ?></small>
 								</p>
 							</li>
 							<!-- Menu Body -->
@@ -144,10 +144,10 @@
 							<!-- Menu Footer-->
 							<li class="user-footer">
 								<div class="pull-left">
-									<a href="{{ url(config('laraadmin.adminRoute') . '/users/') .'/'. Auth::user()->id }}" class="btn btn-default btn-flat">Profile</a>
+									<a href="{{ url(config('laraadmin.adminRoute') . '/users/') .'/'. Auth::user()->id }}" class="btn btn-default btn-flat">Perfil</a>
 								</div>
 								<div class="pull-right">
-									<a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sign out</a>
+									<a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sair</a>
 								</div>
 							</li>
 						</ul>
