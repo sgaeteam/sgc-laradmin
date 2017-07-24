@@ -115,7 +115,8 @@ $(function () {
 		language: {
 			lengthMenu: "_MENU_",
 			search: "_INPUT_",
-			searchPlaceholder: "Search"
+			searchPlaceholder: "Buscar",
+			url: "{{ url('la-assets/plugins/datatables/Localisation/Portuguese-Brasil.lang')}}"
 		},
 		@if($show_actions)
 		columnDefs: [ { orderable: false, targets: [-1] }],
