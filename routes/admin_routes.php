@@ -74,4 +74,20 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	/* ================== Categorias ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/categorias', 'LA\CategoriasController');
 	Route::get(config('laraadmin.adminRoute') . '/categoria_dt_ajax', 'LA\CategoriasController@dtajax');
+
+	/* ================== Area_Competencias ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/area_competencias', 'LA\Area_CompetenciasController');
+	Route::get(config('laraadmin.adminRoute') . '/area_competencia_dt_ajax', 'LA\Area_CompetenciasController@dtajax');
+
+	/* ================== Cobrancas ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/cobrancas', 'LA\CobrancasController');
+	Route::get(config('laraadmin.adminRoute') . '/cobranca_dt_ajax', 'LA\CobrancasController@dtajax');
+
+	/* ================== Socios ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/socios', 'LA\SociosController');
+	Route::get(config('laraadmin.adminRoute') . '/socio_dt_ajax', 'LA\SociosController@dtajax');
+
+	/* ================== Dependentes ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/dependentes', 'LA\DependentesController');
+	Route::get(config('laraadmin.adminRoute') . '/dependente_dt_ajax', 'LA\DependentesController@dtajax');
 });

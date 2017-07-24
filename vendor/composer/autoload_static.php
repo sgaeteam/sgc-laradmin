@@ -97,6 +97,7 @@ class ComposerStaticInit01892e8977112c7b945cc9c17d0515bf
         'D' => 
         array (
             'Dwij\\Laraadmin\\' => 15,
+            'Dwij\\Laeditor\\' => 14,
             'Dotenv\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\Common\\Cache\\' => 22,
@@ -261,6 +262,10 @@ class ComposerStaticInit01892e8977112c7b945cc9c17d0515bf
         array (
             0 => __DIR__ . '/..' . '/dwij/laraadmin/src',
         ),
+        'Dwij\\Laeditor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dwij/laeditor/src',
+        ),
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
@@ -367,7 +372,10 @@ class ComposerStaticInit01892e8977112c7b945cc9c17d0515bf
     );
 
     public static $classMap = array (
+        'AreaCompetenciasTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AreaCompetenciasTableSeeder.php',
         'CategoriasTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CategoriasTableSeeder.php',
+        'CobrancasTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CobrancasTableSeeder.php',
+        'CreateAreaCompetenciasTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_24_014851_create_area_competencias_table.php',
         'CreateBackupsTable' => __DIR__ . '/../..' . '/database/migrations/2016_07_07_134058_create_backups_table.php',
         'CreateCategoriasTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_22_162545_create_categorias_table.php',
         'CreateDepartmentsTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_26_064006_create_departments_table.php',

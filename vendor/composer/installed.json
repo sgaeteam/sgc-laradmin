@@ -4652,5 +4652,48 @@
             "laravel",
             "php"
         ]
+    },
+    {
+        "name": "dwij/laeditor",
+        "version": "0.1.6",
+        "version_normalized": "0.1.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dwijitsolutions/laeditor.git",
+            "reference": "b9262a22b41cd564952b04997dee35967d45ad86"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/dwijitsolutions/laeditor/zipball/b9262a22b41cd564952b04997dee35967d45ad86",
+            "reference": "b9262a22b41cd564952b04997dee35967d45ad86",
+            "shasum": ""
+        },
+        "time": "2016-10-20T11:39:33+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Dwij\\Laeditor\\": "src/"
+            },
+            "files": []
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ganesh Bhosale",
+                "email": "ganesh@dwij.in"
+            }
+        ],
+        "description": "LAEditor is Code Editor for LaraAdmin which is a Open source Admin Panel for Laravel based Applications & CRM's.",
+        "homepage": "http://laraadmin.com",
+        "keywords": [
+            "admin panel",
+            "code editor",
+            "laraadmin",
+            "laravel"
+        ]
     }
 ]
