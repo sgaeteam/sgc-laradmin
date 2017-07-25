@@ -6,9 +6,9 @@
 @section("contentheader_description", $dependente->$view_col)
 @section("section", "Dependentes")
 @section("section_url", url(config('laraadmin.adminRoute') . '/dependentes'))
-@section("sub_section", "Edit")
+@section("sub_section", "Editar")
 
-@section("htmlheader_title", "Dependentes Edit : ".$dependente->$view_col)
+@section("htmlheader_title", "Editar Dependente: ".$dependente->$view_col)
 
 @section("main-content")
 
@@ -41,7 +41,7 @@
 					--}}
                     <br>
 					<div class="form-group">
-						{!! Form::submit( 'Update', ['class'=>'btn btn-success']) !!} <button class="btn btn-default pull-right"><a href="{{ url(config('laraadmin.adminRoute') . '/dependentes') }}">Cancel</a></button>
+						{!! Form::submit( 'Atualizar', ['class'=>'btn btn-success']) !!} <button class="btn btn-default pull-right"><a href="{{ url(config('laraadmin.adminRoute') . '/dependentes') }}">Cancelar</a></button>
 					</div>
 				{!! Form::close() !!}
 			</div>

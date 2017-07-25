@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
 @section("contentheader_title", "Dependentes")
-@section("contentheader_description", "Dependentes listing")
+@section("contentheader_description", "Pesquisa de Dependentes")
 @section("section", "Dependentes")
 @section("sub_section", "Listing")
-@section("htmlheader_title", "Dependentes Listing")
+@section("htmlheader_title", "Pesquisa de Dependentes")
 
 @section("headerElems")
 @la_access("Dependentes", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Dependente</button>
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Incluir Dependente</button>
 @endla_access
 @endsection
 
@@ -34,7 +34,7 @@
 			<th>{{ $module->fields[$col]['label'] or ucfirst($col) }}</th>
 			@endforeach
 			@if($show_actions)
-			<th>Actions</th>
+			<th>A&ccedil;&otilde;es</th>
 			@endif
 		</tr>
 		</thead>
@@ -51,7 +51,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Add Dependente</h4>
+				<h4 class="modal-title" id="myModalLabel">Incluir Dependente</h4>
 			</div>
 			{!! Form::open(['action' => 'LA\DependentesController@store', 'id' => 'dependente-add-form']) !!}
 			<div class="modal-body">
@@ -68,8 +68,8 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				{!! Form::submit( 'Submit', ['class'=>'btn btn-success']) !!}
+				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+				{!! Form::submit( 'Salvar', ['class'=>'btn btn-success']) !!}
 			</div>
 			{!! Form::close() !!}
 		</div>
@@ -94,7 +94,8 @@ $(function () {
 		language: {
 			lengthMenu: "_MENU_",
 			search: "_INPUT_",
-			searchPlaceholder: "Search"
+			searchPlaceholder: "Informe dados de uma coluna",
+			url: "{{ url('la-assets/plugins/datatables/Localisation/Portuguese-Brasil.lang')}}"
 		},
 		@if($show_actions)
 		columnDefs: [ { orderable: false, targets: [-1] }],
