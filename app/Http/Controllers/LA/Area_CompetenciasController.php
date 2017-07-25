@@ -85,12 +85,6 @@ class Area_CompetenciasController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
 			
-			/* 
-			 *	Gerar Matricula 
-			 */
-			$matricula = date("Y-m-d H:i:s") . rand();
-			$request->input('matricula') = $matricula;
-			
 			$insert_id = Module::insert("Area_Competencias", $request);
 			
 			return redirect()->route(config('laraadmin.adminRoute') . '.area_competencias.index');
