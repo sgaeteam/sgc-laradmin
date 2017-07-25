@@ -23,7 +23,8 @@ class SociosController extends Controller
 {
 	public $show_action = true;
 	public $view_col = 'nome';
-	public $listing_cols = ['id', 'nome', 'matricula', 'areacompetencia', 'categoria', 'funcao', 'telefone', 'ramal', 'sexo', 'estado_civil', 'cpf', 'rg', 'data_nascimento', 'nacionalidade', 'naturalidade', 'lotacao', 'unidade', 'profissao', 'endereco', 'bairro', 'cidade', 'estado', 'cep', 'celular', 'email', 'obs', 'cobranca'];
+	//public $listing_cols = ['id', 'nome', 'matricula', 'areacompetencia', 'categoria', 'funcao', 'telefone', 'ramal', 'sexo', 'estado_civil', 'cpf', 'rg', 'data_nascimento', 'nacionalidade', 'naturalidade', 'lotacao', 'unidade', 'profissao', 'endereco', 'bairro', 'cidade', 'estado', 'cep', 'celular', 'email', 'obs', 'cobranca'];
+	public $listing_cols = ['id', 'nome', 'matricula'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
