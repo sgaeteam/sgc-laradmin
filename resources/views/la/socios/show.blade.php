@@ -1,7 +1,7 @@
 @extends('la.layouts.app')
 
 @section('htmlheader_title')
-	Vizualizar S&oacute;cio
+	Visualizar S&oacute;cio
 @endsection
 
 

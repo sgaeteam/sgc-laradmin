@@ -1,7 +1,7 @@
 @extends('la.layouts.app')
 
 @section('htmlheader_title')
-	Vizualizar __singular_cap_var__
+	Visualizar __singular_cap_var__
 @endsection
 
 
