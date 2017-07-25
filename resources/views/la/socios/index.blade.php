@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
-@section("contentheader_title", "Socios")
-@section("contentheader_description", "Socios listing")
+@section("contentheader_title", "S&oacute;cios")
+@section("contentheader_description", "Pesquisa de S&oacute;cios")
 @section("section", "Socios")
 @section("sub_section", "Listing")
-@section("htmlheader_title", "Socios Listing")
+@section("htmlheader_title", "Pesquisa de S&oacute;cios")
 
 @section("headerElems")
 @la_access("Socios", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Socio</button>
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Incluir S&oacute;cio</button>
 @endla_access
 @endsection
 
@@ -34,7 +34,7 @@
 			<th>{{ $module->fields[$col]['label'] or ucfirst($col) }}</th>
 			@endforeach
 			@if($show_actions)
-			<th>Actions</th>
+			<th>A&ccedil;&otilde;es</th>
 			@endif
 		</tr>
 		</thead>
@@ -51,7 +51,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Add Socio</h4>
+				<h4 class="modal-title" id="myModalLabel">Incluir S&oacute;cio</h4>
 			</div>
 			{!! Form::open(['action' => 'LA\SociosController@store', 'id' => 'socio-add-form']) !!}
 			<div class="modal-body">
@@ -89,8 +89,8 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				{!! Form::submit( 'Submit', ['class'=>'btn btn-success']) !!}
+				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+				{!! Form::submit( 'Salvar', ['class'=>'btn btn-success']) !!}
 			</div>
 			{!! Form::close() !!}
 		</div>
@@ -115,7 +115,7 @@ $(function () {
 		language: {
 			lengthMenu: "_MENU_",
 			search: "_INPUT_",
-			searchPlaceholder: "Buscar",
+			searchPlaceholder: "Informe dados de uma coluna",
 			url: "{{ url('la-assets/plugins/datatables/Localisation/Portuguese-Brasil.lang')}}"
 		},
 		@if($show_actions)
