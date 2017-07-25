@@ -1,7 +1,7 @@
 @extends('la.layouts.app')
 
 @section('htmlheader_title')
-	Cobranca View
+	Visualizar Cobran&ccedil;a
 @endsection
 
 
@@ -94,8 +94,8 @@
 	</div>
 
 	<ul data-toggle="ajax-tab" class="nav nav-tabs profile" role="tablist">
-		<li class=""><a href="{{ url(config('laraadmin.adminRoute') . '/cobrancas') }}" data-toggle="tooltip" data-placement="right" title="Back to Cobrancas"><i class="fa fa-chevron-left"></i></a></li>
-		<li class="active"><a role="tab" data-toggle="tab" class="active" href="#tab-general-info" data-target="#tab-info"><i class="fa fa-bars"></i> General Info</a></li>
+		<li class=""><a href="{{ url(config('laraadmin.adminRoute') . '/cobrancas') }}" data-toggle="tooltip" data-placement="right" title="Voltar para Cobran&ccedil;as"><i class="fa fa-chevron-left"></i></a></li>
+		<li class="active"><a role="tab" data-toggle="tab" class="active" href="#tab-general-info" data-target="#tab-info"><i class="fa fa-bars"></i> Informa&ccedil;&otilde;es Gerais</a></li>
 		<li class=""><a role="tab" data-toggle="tab" href="#tab-timeline" data-target="#tab-timeline"><i class="fa fa-clock-o"></i> Timeline</a></li>
 	</ul>
 
@@ -104,7 +104,7 @@
 			<div class="tab-content">
 				<div class="panel infolist">
 					<div class="panel-default panel-heading">
-						<h4>General Info</h4>
+						<h4>Informa&ccedil;&otilde;es Gerais</h4>
 					</div>
 					<div class="panel-body">
 						@la_display($module, 'descricao')

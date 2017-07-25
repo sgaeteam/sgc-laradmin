@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
 @section("contentheader_title")
-	<a href="{{ url(config('laraadmin.adminRoute') . '/cobrancas') }}">Cobranca</a> :
+	<a href="{{ url(config('laraadmin.adminRoute') . '/cobrancas') }}">Cobran&ccedil;a</a> :
 @endsection
 @section("contentheader_description", $cobranca->$view_col)
-@section("section", "Cobrancas")
+@section("section", "Cobran&ccedil;as")
 @section("section_url", url(config('laraadmin.adminRoute') . '/cobrancas'))
-@section("sub_section", "Edit")
+@section("sub_section", "Editar")
 
-@section("htmlheader_title", "Cobrancas Edit : ".$cobranca->$view_col)
+@section("htmlheader_title", "Editar Cobran&ccedil;as: ".$cobranca->$view_col)
 
 @section("main-content")
 
@@ -37,7 +37,7 @@
 					--}}
                     <br>
 					<div class="form-group">
-						{!! Form::submit( 'Update', ['class'=>'btn btn-success']) !!} <button class="btn btn-default pull-right"><a href="{{ url(config('laraadmin.adminRoute') . '/cobrancas') }}">Cancel</a></button>
+						{!! Form::submit( 'Atualizar', ['class'=>'btn btn-success']) !!} <button class="btn btn-default pull-right"><a href="{{ url(config('laraadmin.adminRoute') . '/cobrancas') }}">Cancelar</a></button>
 					</div>
 				{!! Form::close() !!}
 			</div>
