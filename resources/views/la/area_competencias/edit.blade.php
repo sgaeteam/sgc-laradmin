@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
 @section("contentheader_title")
-	<a href="{{ url(config('laraadmin.adminRoute') . '/area_competencias') }}">Area Competencia</a> :
+	<a href="{{ url(config('laraadmin.adminRoute') . '/area_competencias') }}">&Aacute;reas de Compet&ecirc;ncias</a> :
 @endsection
 @section("contentheader_description", $area_competencia->$view_col)
-@section("section", "Area Competencias")
+@section("section", "&Aacute;reas de Compet&ecirc;ncias")
 @section("section_url", url(config('laraadmin.adminRoute') . '/area_competencias'))
-@section("sub_section", "Edit")
+@section("sub_section", "Editar")
 
-@section("htmlheader_title", "Area Competencias Edit : ".$area_competencia->$view_col)
+@section("htmlheader_title", "Editar &Aacute;rea de Compet&ecirc;ncia: ".$area_competencia->$view_col)
 
 @section("main-content")
 
@@ -38,7 +38,7 @@
 					--}}
                     <br>
 					<div class="form-group">
-						{!! Form::submit( 'Update', ['class'=>'btn btn-success']) !!} <button class="btn btn-default pull-right"><a href="{{ url(config('laraadmin.adminRoute') . '/area_competencias') }}">Cancel</a></button>
+						{!! Form::submit( 'Atualizar', ['class'=>'btn btn-success']) !!} <button class="btn btn-default pull-right"><a href="{{ url(config('laraadmin.adminRoute') . '/area_competencias') }}">Cancelar</a></button>
 					</div>
 				{!! Form::close() !!}
 			</div>
