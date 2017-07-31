@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ LAConfigs::getByKey('site_description') }}">
-    <meta name="author" content="Dwij IT Solutions">
+    <meta name="author" content="SgaeTeam Solutions">
 
     <meta property="og:title" content="{{ LAConfigs::getByKey('sitename') }}" />
     <meta property="og:type" content="website" />
@@ -52,13 +52,13 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#home" class="smoothScroll">Home</a></li>
-                <li><a href="#about" class="smoothScroll">About</a></li>
-                <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                <li class="active"><a href="#home" class="smoothScroll">Principal</a></li>
+                <li><a href="#about" class="smoothScroll">Sobre</a></li>
+                <li><a href="#contact" class="smoothScroll">Contato</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
+                    <li><a href="{{ url('/login') }}">Entrar</a></li>
                     <!--<li><a href="{{ url('/register') }}">Register</a></li>-->
                 @else
                     <li><a href="{{ url(config('laraadmin.adminRoute')) }}">{{ Auth::user()->name }}</a></li>
@@ -76,7 +76,7 @@
             <div class="col-lg-12">
                 <h1>{{ LAConfigs::getByKey('sitename_part1') }} <b><a>{{ LAConfigs::getByKey('sitename_part2') }}</a></b></h1>
                 <h3>{{ LAConfigs::getByKey('site_description') }}</h3>
-                <h3><a href="{{ url('/login') }}" class="btn btn-lg btn-success">Get Started!</a></h3><br>
+                <h3><a href="{{ url('/login') }}" class="btn btn-lg btn-success">Entrar</a></h3><br>
             </div>
             <div class="col-lg-2">
                 <h5>Amazing Functionalities</h5>
@@ -160,37 +160,37 @@
 <div id="footerwrap">
     <div class="container">
         <div class="col-lg-5">
-            <h3>Contact Us</h3><br>
+            <h3>Entre em contate</h3><br>
             <p>
-				Dwij IT Solutions,<br/>
+				SgaeTeam Solutions,<br/>
 				Web Development Company in Pune,<br/>
                 B4, Patang Plaza Phase 5,<br/>
                 Opp. PICT College,<br/>
                 Katraj, Pune, India - 411046
             </p>
-			<div class="contact-link"><i class="fa fa-envelope-o"></i> <a href="mailto:hello@laraadmin.com">hello@laraadmin.com</a></div>
+			<div class="contact-link"><i class="fa fa-envelope-o"></i> <a href="mailto:sgaeteam@gmail.com">sgaeteam@gmail.com</a></div>
 			<div class="contact-link"><i class="fa fa-cube"></i> <a href="http://laraadmin.com">laraadmin.com</a></div>
-			<div class="contact-link"><i class="fa fa-building"></i> <a href="http://dwijitsolutions.com">dwijitsolutions.com</a></div>
+			<div class="contact-link"><i class="fa fa-building"></i> <a href="#">sgaeteam.com</a></div>
         </div>
 
         <div class="col-lg-7">
-            <h3>Drop Us A Line</h3>
+            <h3>Deixe-nos uma mensagem</h3>
             <br>
             <form role="form" action="#" method="post" enctype="plain">
                 <div class="form-group">
-                    <label for="name1">Your Name</label>
-                    <input type="name" name="Name" class="form-control" id="name1" placeholder="Your Name">
+                    <label for="name1">Nome</label>
+                    <input type="name" name="Name" class="form-control" id="name1" placeholder="Seu nome">
                 </div>
                 <div class="form-group">
-                    <label for="email1">Email address</label>
-                    <input type="email" name="Mail" class="form-control" id="email1" placeholder="Enter email">
+                    <label for="email1">Email</label>
+                    <input type="email" name="Mail" class="form-control" id="email1" placeholder="Email para contato">
                 </div>
                 <div class="form-group">
-                    <label>Your Text</label>
+                    <label>Mensagem</label>
                     <textarea class="form-control" name="Message" rows="3"></textarea>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-large btn-success">SUBMIT</button>
+                <button type="submit" class="btn btn-large btn-success">Enviar</button>
             </form>
         </div>
     </div>
@@ -198,7 +198,7 @@
 <div id="c">
     <div class="container">
         <p>
-            <strong>Copyright &copy; 2016. Powered by <a href="https://dwijitsolutions.com"><b>Dwij IT Solutions</b></a>
+            <strong>Copyright &copy; 2017. Desenvolvido por <a href="#"><b>SgaeTeam Solutions</b></a>
         </p>
     </div>
 </div>
