@@ -17,37 +17,37 @@ use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
-use App\Models\Socio;
+use App\Models\Evento;
 
-class SociosController extends Controller
+class EventosController extends Controller
 {
 	public $show_action = true;
-	public $view_col = 'nome';
-	public $listing_cols = ['id', 'nome', 'matricula', 'data_nascimento'];
+	public $view_col = 'descricao';
+	public $listing_cols = ['id', 'descricao'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
 		if(\Dwij\Laraadmin\Helpers\LAHelper::laravel_ver() == 5.3) {
 			$this->middleware(function ($request, $next) {
-				$this->listing_cols = ModuleFields::listingColumnAccessScan('Socios', $this->listing_cols);
+				$this->listing_cols = ModuleFields::listingColumnAccessScan('Eventos', $this->listing_cols);
 				return $next($request);
 			});
 		} else {
-			$this->listing_cols = ModuleFields::listingColumnAccessScan('Socios', $this->listing_cols);
+			$this->listing_cols = ModuleFields::listingColumnAccessScan('Eventos', $this->listing_cols);
 		}
 	}
 	
 	/**
-	 * Display a listing of the Socios.
+	 * Display a listing of the Eventos.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index()
 	{
-		$module = Module::get('Socios');
+		$module = Module::get('Eventos');
 		
 		if(Module::hasAccess($module->id)) {
-			return View('la.socios.index', [
+			return View('la.eventos.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
 				'module' => $module
@@ -58,7 +58,7 @@ class SociosController extends Controller
 	}
 
 	/**
-	 * Show the form for creating a new socio.
+	 * Show the form for creating a new evento.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
@@ -68,16 +68,16 @@ class SociosController extends Controller
 	}
 
 	/**
-	 * Store a newly created socio in database.
+	 * Store a newly created evento in database.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request)
 	{
-		if(Module::hasAccess("Socios", "create")) {
+		if(Module::hasAccess("Eventos", "create")) {
 		
-			$rules = Module::validateRules("Socios", $request);
+			$rules = Module::validateRules("Eventos", $request);
 			
 			$validator = Validator::make($request->all(), $rules);
 			
@@ -85,9 +85,9 @@ class SociosController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
 			
-			$insert_id = Module::insert("Socios", $request);
+			$insert_id = Module::insert("Eventos", $request);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.socios.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.eventos.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -95,30 +95,30 @@ class SociosController extends Controller
 	}
 
 	/**
-	 * Display the specified socio.
+	 * Display the specified evento.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id)
 	{
-		if(Module::hasAccess("Socios", "view")) {
+		if(Module::hasAccess("Eventos", "view")) {
 			
-			$socio = Socio::find($id);
-			if(isset($socio->id)) {
-				$module = Module::get('Socios');
-				$module->row = $socio;
+			$evento = Evento::find($id);
+			if(isset($evento->id)) {
+				$module = Module::get('Eventos');
+				$module->row = $evento;
 				
-				return view('la.socios.show', [
+				return view('la.eventos.show', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 					'no_header' => true,
 					'no_padding' => "no-padding"
-				])->with('socio', $socio);
+				])->with('evento', $evento);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
-					'record_name' => ucfirst("socio"),
+					'record_name' => ucfirst("evento"),
 				]);
 			}
 		} else {
@@ -127,28 +127,28 @@ class SociosController extends Controller
 	}
 
 	/**
-	 * Show the form for editing the specified socio.
+	 * Show the form for editing the specified evento.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit($id)
 	{
-		if(Module::hasAccess("Socios", "edit")) {			
-			$socio = Socio::find($id);
-			if(isset($socio->id)) {	
-				$module = Module::get('Socios');
+		if(Module::hasAccess("Eventos", "edit")) {			
+			$evento = Evento::find($id);
+			if(isset($evento->id)) {	
+				$module = Module::get('Eventos');
 				
-				$module->row = $socio;
+				$module->row = $evento;
 				
-				return view('la.socios.edit', [
+				return view('la.eventos.edit', [
 					'module' => $module,
 					'view_col' => $this->view_col,
-				])->with('socio', $socio);
+				])->with('evento', $evento);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
-					'record_name' => ucfirst("socio"),
+					'record_name' => ucfirst("evento"),
 				]);
 			}
 		} else {
@@ -157,7 +157,7 @@ class SociosController extends Controller
 	}
 
 	/**
-	 * Update the specified socio in storage.
+	 * Update the specified evento in storage.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @param  int  $id
@@ -165,9 +165,9 @@ class SociosController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		if(Module::hasAccess("Socios", "edit")) {
+		if(Module::hasAccess("Eventos", "edit")) {
 			
-			$rules = Module::validateRules("Socios", $request, true);
+			$rules = Module::validateRules("Eventos", $request, true);
 			
 			$validator = Validator::make($request->all(), $rules);
 			
@@ -175,9 +175,9 @@ class SociosController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();;
 			}
 			
-			$insert_id = Module::updateRow("Socios", $request, $id);
+			$insert_id = Module::updateRow("Eventos", $request, $id);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.socios.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.eventos.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -185,18 +185,18 @@ class SociosController extends Controller
 	}
 
 	/**
-	 * Remove the specified socio from storage.
+	 * Remove the specified evento from storage.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy($id)
 	{
-		if(Module::hasAccess("Socios", "delete")) {
-			Socio::find($id)->delete();
+		if(Module::hasAccess("Eventos", "delete")) {
+			Evento::find($id)->delete();
 			
 			// Redirecting to index() method
-			return redirect()->route(config('laraadmin.adminRoute') . '.socios.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.eventos.index');
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
 		}
@@ -209,11 +209,11 @@ class SociosController extends Controller
 	 */
 	public function dtajax()
 	{
-		$values = DB::table('socios')->select($this->listing_cols)->whereNull('deleted_at');
+		$values = DB::table('eventos')->select($this->listing_cols)->whereNull('deleted_at');
 		$out = Datatables::of($values)->make();
 		$data = $out->getData();
 
-		$fields_popup = ModuleFields::getModuleFields('Socios');
+		$fields_popup = ModuleFields::getModuleFields('Eventos');
 		
 		for($i=0; $i < count($data->data); $i++) {
 			for ($j=0; $j < count($this->listing_cols); $j++) { 
@@ -222,7 +222,7 @@ class SociosController extends Controller
 					$data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
 				}
 				if($col == $this->view_col) {
-					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/socios/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
+					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/eventos/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
 				}
 				// else if($col == "author") {
 				//    $data->data[$i][$j];
@@ -231,12 +231,12 @@ class SociosController extends Controller
 			
 			if($this->show_action) {
 				$output = '';
-				if(Module::hasAccess("Socios", "edit")) {
-					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/socios/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
+				if(Module::hasAccess("Eventos", "edit")) {
+					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/eventos/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				
-				if(Module::hasAccess("Socios", "delete")) {
-					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.socios.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
+				if(Module::hasAccess("Eventos", "delete")) {
+					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.eventos.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();
 				}

@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\Area_Competencia;
 
+
 class AreaCompetenciasTableSeeder extends Seeder
 {
     /**

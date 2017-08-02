@@ -20,9 +20,9 @@ class CreateDependentesTable extends Migration
         Module::generate("Dependentes", 'dependentes', 'nome', 'fa-users', [
             ["nome", "Nome", "Name", false, "", 0, 256, true],
             ["sexo", "Sexo", "String", false, "", 1, 1, true],
-            ["data_nascimento", "Data Nascimento", "Date", false, "", 0, 0, true],
+            ["data_nascimento", "Data Nascimento", "String", false, "", 0, 17, true],
             ["grau", "Grau", "String", false, "", 0, 50, true],
-            ["socio", "Socio", "Multiselect", false, "", 0, 0, true, "@socios"],
+            ["socio", "Socio", "Dropdown", false, "", 0, 0, true, "@socios"],
         ]);
 		
 		/*

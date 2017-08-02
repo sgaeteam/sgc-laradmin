@@ -17,7 +17,7 @@ class CreateAreaCompetenciasTable extends Migration
      */
     public function up()
     {
-        Module::generate("Area_competencias", 'area_competencias', 'sigla', 'fa-list', [
+        Module::generate("Area_Competencias", 'area_competencias', 'sigla', 'fa-list', [
             ["sigla", "Sigla", "String", true, "", 2, 10, true],
             ["descricao", "Descrição", "String", false, "", 0, 256, true],
         ]);

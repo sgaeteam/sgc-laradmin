@@ -1,7 +1,7 @@
 @extends('la.layouts.app')
 
 @section('htmlheader_title')
-	Visualizar Socio
+	Vizualizar Evento
 @endsection
 
 
@@ -15,7 +15,7 @@
 					<div class="profile-icon text-primary"><i class="fa {{ $module->fa_icon }}"></i></div>
 				</div>
 				<div class="col-md-9">
-					<h4 class="name">{{ $socio->$view_col }}</h4>
+					<h4 class="name">{{ $evento->$view_col }}</h4>
 					<div class="row stats">
 						<div class="col-md-4"><i class="fa fa-facebook"></i> 234</div>
 						<div class="col-md-4"><i class="fa fa-twitter"></i> 12</div>
@@ -81,12 +81,12 @@
 			</div>
 		</div>
 		<div class="col-md-1 actions">
-			@la_access("Socios", "edit")
-				<a href="{{ url(config('laraadmin.adminRoute') . '/socios/'.$socio->id.'/edit') }}" class="btn btn-xs btn-edit btn-default"><i class="fa fa-pencil"></i></a><br>
+			@la_access("Eventos", "edit")
+				<a href="{{ url(config('laraadmin.adminRoute') . '/eventos/'.$evento->id.'/edit') }}" class="btn btn-xs btn-edit btn-default"><i class="fa fa-pencil"></i></a><br>
 			@endla_access
 			
-			@la_access("Socios", "delete")
-				{{ Form::open(['route' => [config('laraadmin.adminRoute') . '.socios.destroy', $socio->id], 'method' => 'delete', 'style'=>'display:inline']) }}
+			@la_access("Eventos", "delete")
+				{{ Form::open(['route' => [config('laraadmin.adminRoute') . '.eventos.destroy', $evento->id], 'method' => 'delete', 'style'=>'display:inline']) }}
 					<button class="btn btn-default btn-delete btn-xs" type="submit"><i class="fa fa-times"></i></button>
 				{{ Form::close() }}
 			@endla_access
@@ -94,7 +94,7 @@
 	</div>
 
 	<ul data-toggle="ajax-tab" class="nav nav-tabs profile" role="tablist">
-		<li class=""><a href="{{ url(config('laraadmin.adminRoute') . '/socios') }}" data-toggle="tooltip" data-placement="right" title="Voltar para Socios"><i class="fa fa-chevron-left"></i></a></li>
+		<li class=""><a href="{{ url(config('laraadmin.adminRoute') . '/eventos') }}" data-toggle="tooltip" data-placement="right" title="Voltar para Eventos"><i class="fa fa-chevron-left"></i></a></li>
 		<li class="active"><a role="tab" data-toggle="tab" class="active" href="#tab-general-info" data-target="#tab-info"><i class="fa fa-bars"></i> Informa&ccedil;&otilde;es Gerais</a></li>
 		<li class=""><a role="tab" data-toggle="tab" href="#tab-timeline" data-target="#tab-timeline"><i class="fa fa-clock-o"></i> Timeline</a></li>
 	</ul>
@@ -107,33 +107,7 @@
 						<h4>Informa&ccedil;&otilde;es Gerais</h4>
 					</div>
 					<div class="panel-body">
-						@la_display($module, 'nome')
-						@la_display($module, 'matricula')
-						@la_display($module, 'areacompetencia')
-						@la_display($module, 'categoria')
-						@la_display($module, 'funcao')
-						@la_display($module, 'telefone')
-						@la_display($module, 'ramal')
-						@la_display($module, 'sexo')
-						@la_display($module, 'estado_civil')
-						@la_display($module, 'cpf')
-						@la_display($module, 'rg')
-						@la_display($module, 'data_nascimento')
-						@la_display($module, 'nacionalidade')
-						@la_display($module, 'naturalidade')
-						@la_display($module, 'lotacao')
-						@la_display($module, 'unidade')
-						@la_display($module, 'profissao')
-						@la_display($module, 'endereco')
-						@la_display($module, 'bairro')
-						@la_display($module, 'cidade')
-						@la_display($module, 'estado')
-						@la_display($module, 'cep')
-						@la_display($module, 'celular')
-						@la_display($module, 'obs')
-						@la_display($module, 'cobranca')
-						@la_display($module, 'outra_matricula')
-						@la_display($module, 'data_adesao')
+						@la_display($module, 'descricao')
 					</div>
 				</div>
 			</div>

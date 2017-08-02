@@ -8,7 +8,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Dwij\Laraadmin\Models\Module;
 
-class CreateSociosTable extends Migration
+class CreateEventosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,34 +17,8 @@ class CreateSociosTable extends Migration
      */
     public function up()
     {
-        Module::generate("Socios", 'socios', 'nome', 'fa-user', [
-            ["nome", "Nome", "Name", false, "", 0, 256, true],
-            ["matricula", "Matricula", "String", false, "0", 0, 250, false],
-            ["areacompetencia", "Area Competencia", "Dropdown", false, "", 0, 0, false, "@area_competencias"],
-            ["categoria", "Categoria", "Dropdown", false, "", 0, 0, true, "@categorias"],
-            ["funcao", "Função", "String", false, "", 0, 20, false],
-            ["telefone", "Telefone", "Mobile", false, "", 0, 20, false],
-            ["ramal", "Ramal", "String", false, "", 0, 11, false],
-            ["sexo", "Sexo", "String", false, "", 1, 1, false],
-            ["estado_civil", "Estado Civil", "String", false, "", 1, 1, false],
-            ["cpf", "CPF", "String", false, "", 11, 250, false],
-            ["rg", "RG", "String", false, "", 0, 20, false],
-            ["data_nascimento", "Data Nascimento", "Date", false, "", 0, 50, false],
-            ["nacionalidade", "Nacionalidade", "String", false, "", 0, 15, false],
-            ["naturalidade", "Naturalidade", "String", false, "", 0, 15, false],
-            ["lotacao", "Lotação", "String", false, "", 0, 25, false],
-            ["unidade", "Unidade", "String", false, "", 0, 25, false],
-            ["profissao", "Profissão", "String", false, "", 0, 25, false],
-            ["endereco", "Endereço", "Address", false, "", 0, 256, false],
-            ["bairro", "Bairro", "String", false, "", 0, 50, false],
-            ["cidade", "Cidade", "String", false, "", 0, 50, false],
-            ["estado", "Estado", "String", false, "", 0, 2, false],
-            ["cep", "CEP", "String", false, "", 0, 8, false],
-            ["celular", "Celular", "Mobile", false, "", 0, 20, false],
-            ["obs", "OBS", "String", false, "", 0, 256, false],
-            ["cobranca", "Cobrança", "Dropdown", false, "", 0, 0, true, "@cobrancas"],
-            ["outra_matricula", "Outra Matricula", "String", false, "", 0, 256, false],
-            ["data_adesao", "Data Adesao", "Date", false, "", 0, 0, false],
+        Module::generate("Eventos", 'eventos', 'descricao', 'fa-volume-up', [
+            ["descricao", "Descrição", "String", false, "", 0, 256, true],
         ]);
 		
 		/*
@@ -90,8 +64,8 @@ class CreateSociosTable extends Migration
      */
     public function down()
     {
-        if (Schema::hasTable('socios')) {
-            Schema::drop('socios');
+        if (Schema::hasTable('eventos')) {
+            Schema::drop('eventos');
         }
     }
 }

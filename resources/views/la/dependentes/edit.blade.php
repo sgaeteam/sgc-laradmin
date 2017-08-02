@@ -8,7 +8,7 @@
 @section("section_url", url(config('laraadmin.adminRoute') . '/dependentes'))
 @section("sub_section", "Editar")
 
-@section("htmlheader_title", "Editar Dependente: ".$dependente->$view_col)
+@section("htmlheader_title", "Editar Dependentes: ".$dependente->$view_col)
 
 @section("main-content")
 

@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
 @section("contentheader_title")
-	<a href="{{ url(config('laraadmin.adminRoute') . '/socios') }}">S&oacute;cios</a> :
+	<a href="{{ url(config('laraadmin.adminRoute') . '/socios') }}">Socio</a> :
 @endsection
 @section("contentheader_description", $socio->$view_col)
-@section("section", "S&oacute;cios")
+@section("section", "Socios")
 @section("section_url", url(config('laraadmin.adminRoute') . '/socios'))
 @section("sub_section", "Editar")
 
-@section("htmlheader_title", "Editar S&oacute;cio: ".$socio->$view_col)
+@section("htmlheader_title", "Editar Socios: ".$socio->$view_col)
 
 @section("main-content")
 
@@ -56,9 +56,10 @@
 					@la_input($module, 'estado')
 					@la_input($module, 'cep')
 					@la_input($module, 'celular')
-					@la_input($module, 'email')
 					@la_input($module, 'obs')
 					@la_input($module, 'cobranca')
+					@la_input($module, 'outra_matricula')
+					@la_input($module, 'data_adesao')
 					--}}
                     <br>
 					<div class="form-group">
