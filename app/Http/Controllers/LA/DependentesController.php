@@ -249,7 +249,7 @@ class DependentesController extends Controller
 					$output .= '	   <div class="box-body">Tem certeza de que deseja excluir este registro?</div>';
 					$output .= '	  </div>';
 					$output .= '	  <div class="modal-footer">';
-					$output .= '	   <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>';
+					$output .= '	   <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>';
 					$output .=         Form::submit( 'Sim', ['class'=>'btn btn-success']);
 					$output .= '      </div>';
 					$output .=        Form::close();
