@@ -90,4 +90,8 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	/* ================== Dependentes ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/dependentes', 'LA\DependentesController');
 	Route::get(config('laraadmin.adminRoute') . '/dependente_dt_ajax', 'LA\DependentesController@dtajax');
+
+	/* ================== Atividades ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/atividades', 'LA\AtividadesController');
+	Route::get(config('laraadmin.adminRoute') . '/atividade_dt_ajax', 'LA\AtividadesController@dtajax');
 });
