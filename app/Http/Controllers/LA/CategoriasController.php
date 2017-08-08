@@ -236,9 +236,26 @@ class CategoriasController extends Controller
 				}
 				
 				if(Module::hasAccess("Categorias", "delete")) {
-					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.categorias.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
-					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
-					$output .= Form::close();
+					$output .= ' <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#DelModal_'.$data->data[$i][0].'"><i class="fa fa-times"></i></button>';
+					$output .= '  <div class="modal fade" id="DelModal_'.$data->data[$i][0].'" role="dialog" aria-labelledby="myModalLabel">';
+					$output .= '   <div class="modal-dialog" role="document">';
+					$output .= '    <div class="modal-content">';
+					$output .= '      <div class="modal-header">';
+					$output .= '	   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+					$output .= '	   <h4 class="modal-title" id="myDelModalLabel">Excluir Categoria</h4>';
+					$output .= '	  </div>';
+					$output .=   	  Form::open(['route' => [config('laraadmin.adminRoute') . '.categorias.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
+					$output .= '	  <div class="modal-body">';
+					$output .= '	   <div class="box-body">Tem certeza de que deseja excluir este registro?</div>';
+					$output .= '	  </div>';
+					$output .= '	  <div class="modal-footer">';
+					$output .= '	   <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>';
+					$output .=         Form::submit( 'Sim', ['class'=>'btn btn-success']);
+					$output .= '      </div>';
+					$output .=        Form::close();
+					$output .= '   </div>';
+					$output .= '  </div>';
+					$output .= ' </div>';
 				}
 				$data->data[$i][] = (string)$output;
 			}
