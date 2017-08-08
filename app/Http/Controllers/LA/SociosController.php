@@ -236,9 +236,6 @@ class SociosController extends Controller
 				}
 				
 				if(Module::hasAccess("Socios", "delete")) {
-					//$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.socios.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
-					//$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
-					//$output .= Form::close();
 					$output .= ' <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#DelModal_'.$data->data[$i][0].'"><i class="fa fa-times"></i></button>';
 					$output .= '  <div class="modal fade" id="DelModal_'.$data->data[$i][0].'" role="dialog" aria-labelledby="myModalLabel">';
 					$output .= '   <div class="modal-dialog" role="document">';
@@ -259,7 +256,6 @@ class SociosController extends Controller
 					$output .= '   </div>';
 					$output .= '  </div>';
 					$output .= ' </div>';
-					
 				}
 				$data->data[$i][] = (string)$output;
 			}
