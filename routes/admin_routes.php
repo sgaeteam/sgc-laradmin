@@ -94,4 +94,9 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	/* ================== Atividades ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/atividades', 'LA\AtividadesController');
 	Route::get(config('laraadmin.adminRoute') . '/atividade_dt_ajax', 'LA\AtividadesController@dtajax');
+
+
+	/* ================== Espacos ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/espacos', 'LA\EspacosController');
+	Route::get(config('laraadmin.adminRoute') . '/espaco_dt_ajax', 'LA\EspacosController@dtajax');
 });
