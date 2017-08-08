@@ -242,7 +242,7 @@ class AtividadesController extends Controller
 					$output .= '    <div class="modal-content">';
 					$output .= '      <div class="modal-header">';
 					$output .= '	   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-					$output .= '	   <h4 class="modal-title" id="myDelModalLabel">Excluir Atividades</h4>';
+					$output .= '	   <h4 class="modal-title" id="myDelModalLabel">Excluir Atividade</h4>';
 					$output .= '	  </div>';
 					$output .=   	  Form::open(['route' => [config('laraadmin.adminRoute') . '.atividades.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= '	  <div class="modal-body">';
