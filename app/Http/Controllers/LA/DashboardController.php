@@ -40,13 +40,6 @@ class DashboardController extends Controller
         $socios = $this->getSocios();
         $visitantes = 554;
         
-        $teste1 = 24;
-        $teste2 = 56;
-        $teste3 = 20;
-        echo json_encode($teste1);
-        echo json_encode($teste2);
-        echo json_encode($teste3);
-        
         return view('la.dashboard',compact('convites','pagamentos','socios','visitantes'));
     }
 

@@ -1398,7 +1398,7 @@
 		forceParse: true,
 		format: 'mm/dd/yyyy',
 		keyboardNavigation: true,
-		language: 'en',
+		language: 'pt-BR',
 		minViewMode: 0,
 		multidate: false,
 		multidateSeparator: ',',
@@ -1415,6 +1415,7 @@
 		'rtl',
 		'weekStart'
 	];
+
 	$.fn.datepicker.Constructor = Datepicker;
 	var dates = $.fn.datepicker.dates = {
 		en: {
@@ -1426,8 +1427,20 @@
 			today: "Today",
 			clear: "Clear"
 		}
+		
+		pt-BR: {
+			days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
+			daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
+			daysMin: ["Do", "Se", "Te", "Qu", "Qu", "Se", "Sa", "Do"],
+			months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+			monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+			today: "Hoje",
+			clear: "Limpar"	
+		}
 	};
+	
 
+	
 	var DPGlobal = {
 		modes: [
 			{
