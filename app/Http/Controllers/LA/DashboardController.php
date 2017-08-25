@@ -11,6 +11,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 
 use App\Models\Socio;
+use App\Models\Dependente;
 
 /**
  * Class DashboardController
@@ -71,6 +72,15 @@ class DashboardController extends Controller
 	{
     	return	$module = Socio::count();
 	}	
+	/**
+	 * Display the total count of the Socios.
+	 *
+	 * @return int
+	 */
+	public function getDependentes()
+	{
+    	return	$module = Dependente::count();
+	}	
 
 	/**
 	 * Display the total count of the Visitantes.
@@ -80,5 +90,25 @@ class DashboardController extends Controller
 	public function getVisitantes()
 	{
     	//return	$module = Visitante::count();
-	}		
+	}
+	
+	/**
+	 * Display the donut chart for total user month 
+	 *
+	 * @return ??
+	 */
+	public function user_month_chart()
+	{
+		
+        $socios = $this->getSocios();
+        $dependentes = $this->getDependentes();
+        $usuarios = 25;
+    	
+		return response()->json([
+			['label' => "Sócios",	'value' => $socios],
+			['label' => "Dependentes",		'value' => $dependentes],
+			['label' => "Usuários",	'value' => $usuarios],
+		]);
+    }
+	
 }

@@ -1,10 +1,102 @@
 /*
- * Author: Abdullah A Almsaeed
- * Date: 4 Jan 2014
+ * Author: SgateTeam
+ * Date: 24 Ago 2017
  * Description:
  *      This is a demo file used only for the main dashboard (index.html)
  **/
 
+$(document).ready(function() {
+  
+  var donut;
+  var area;
+  var line;
+  
+  //1 - Gráfico donut
+  $.ajax({
+    url: "admin/user_month_chart",
+    contentType: 'application/json; charset=utf-8',
+		dataType: 'json',
+		method: 'GET',
+		data: {},
+		success: function( data ) {
+				  donut = new Morris.Donut({
+				  element: 'user-month-chart',
+				  resize: true,
+				  colors: ["#3c8dbc", "#f56954", "#00a65a"],
+				  data: data,
+				  hideHover: 'auto'
+				});
+		},
+		error: function(e) {
+			console.log(e.responseText);
+		}
+  });
+  
+  //2 - Gráfico Total usuários
+    area = new Morris.Area({
+    element: 'revenue-chart',
+    resize: true,
+    data: [
+      {y: '2015 Q1', socios: 2666, dependentes: 2666, usuarios: 2534},
+      {y: '2015 Q2', socios: 2778, dependentes: 2294, usuarios: 2334},
+      {y: '2015 Q3', socios: 4912, dependentes: 1969, usuarios: 1834},
+      {y: '2015 Q4', socios: 3767, dependentes: 3597, usuarios: 2634},
+      {y: '2016 Q1', socios: 6810, dependentes: 1914, usuarios: 2134},
+      {y: '2016 Q2', socios: 5670, dependentes: 4293, usuarios: 4134},
+      {y: '2016 Q3', socios: 4820, dependentes: 3795, usuarios: 3234},
+      {y: '2016 Q4', socios: 15073, dependentes: 5967, usuarios: 4394},
+      {y: '2017 Q1', socios: 10687, dependentes: 4460, usuarios: 3234},
+      {y: '2017 Q2', socios: 8432, dependentes: 5713, usuarios: 4234}
+    ],
+    xkey: 'y',
+    ykeys: ['socios', 'dependentes', 'usuarios'],
+    labels: ['Sócios', 'Dependentes', 'Usuários'],
+    lineColors: ['#a0d0e0', '#3c8dbc', '#419EDE'],
+    hideHover: 'auto'
+  });
+  
+  //3 - Gráfico
+    line = new Morris.Line({
+    element: 'line-chart',
+    resize: true,
+    data: [
+      {y: '2011 Q1', item1: 2666},
+      {y: '2011 Q2', item1: 2778},
+      {y: '2011 Q3', item1: 4912},
+      {y: '2011 Q4', item1: 3767},
+      {y: '2012 Q1', item1: 6810},
+      {y: '2012 Q2', item1: 5670},
+      {y: '2012 Q3', item1: 4820},
+      {y: '2012 Q4', item1: 15073},
+      {y: '2013 Q1', item1: 10687},
+      {y: '2013 Q2', item1: 8432}
+    ],
+    xkey: 'y',
+    ykeys: ['item1'],
+    labels: ['Item 1'],
+    lineColors: ['#efefef'],
+    lineWidth: 2,
+    hideHover: 'auto',
+    gridTextColor: "#fff",
+    gridStrokeWidth: 0.4,
+    pointSize: 4,
+    pointStrokeColors: ["#efefef"],
+    gridLineColor: "#efefef",
+    gridTextFamily: "Open Sans",
+    gridTextSize: 10
+  });
+
+  //Fix for charts under tabs
+  $('.box ul.nav a').on('shown.bs.tab', function () {
+    area.redraw();
+    donut.redraw();
+    line.redraw();
+  });
+ 
+  
+});
+
+//TODO: Remover todos os exemplos abaixo após desenvolvimento
 $(function () {
 
   "use strict";
@@ -122,80 +214,7 @@ $(function () {
     height: '250px'
   });
 
-  /* Morris.js Charts */
-  // Sales chart
-  var area = new Morris.Area({
-    element: 'revenue-chart',
-    resize: true,
-    data: [
-      {y: '2011 Q1', item1: 2666, item2: 2666},
-      {y: '2011 Q2', item1: 2778, item2: 2294},
-      {y: '2011 Q3', item1: 4912, item2: 1969},
-      {y: '2011 Q4', item1: 3767, item2: 3597},
-      {y: '2012 Q1', item1: 6810, item2: 1914},
-      {y: '2012 Q2', item1: 5670, item2: 4293},
-      {y: '2012 Q3', item1: 4820, item2: 3795},
-      {y: '2012 Q4', item1: 15073, item2: 5967},
-      {y: '2013 Q1', item1: 10687, item2: 4460},
-      {y: '2013 Q2', item1: 8432, item2: 5713}
-    ],
-    xkey: 'y',
-    ykeys: ['item1', 'item2'],
-    labels: ['Item 1', 'Item 2'],
-    lineColors: ['#a0d0e0', '#3c8dbc'],
-    hideHover: 'auto'
-  });
-  var line = new Morris.Line({
-    element: 'line-chart',
-    resize: true,
-    data: [
-      {y: '2011 Q1', item1: 2666},
-      {y: '2011 Q2', item1: 2778},
-      {y: '2011 Q3', item1: 4912},
-      {y: '2011 Q4', item1: 3767},
-      {y: '2012 Q1', item1: 6810},
-      {y: '2012 Q2', item1: 5670},
-      {y: '2012 Q3', item1: 4820},
-      {y: '2012 Q4', item1: 15073},
-      {y: '2013 Q1', item1: 10687},
-      {y: '2013 Q2', item1: 8432}
-    ],
-    xkey: 'y',
-    ykeys: ['item1'],
-    labels: ['Item 1'],
-    lineColors: ['#efefef'],
-    lineWidth: 2,
-    hideHover: 'auto',
-    gridTextColor: "#fff",
-    gridStrokeWidth: 0.4,
-    pointSize: 4,
-    pointStrokeColors: ["#efefef"],
-    gridLineColor: "#efefef",
-    gridTextFamily: "Open Sans",
-    gridTextSize: 10
-  });
-
-  //Donut Chart
-  var donut = new Morris.Donut({
-    element: 'sales-chart',
-    resize: true,
-    colors: ["#3c8dbc", "#f56954", "#00a65a"],
-    data: [
-      {label: "Sócios", value: 50},
-      {label: "Usuários", value: 20},
-      {label: "Dependentes", value: 30}
-    ],
-    hideHover: 'auto'
-  });
-
-  //Fix for charts under tabs
-  $('.box ul.nav a').on('shown.bs.tab', function () {
-    area.redraw();
-    donut.redraw();
-    line.redraw();
-  });
-
-  /* The todo list plugin */
+/* The todo list plugin */
   $(".todo-list").todolist({
     onCheck: function (ele) {
       window.console.log("The element has been checked");
