@@ -309,10 +309,15 @@ class LAHelper
 		$treeview = "";
 		$treeview2 = "";
 		$subviewSign = "";
-		if(count($childrens)) {
+		if(count($childrens) && $menu->parent === 0) {
 			$treeview = " class=\"dropdown\"";
 			$treeview2 = " class=\"dropdown-toggle\" data-toggle=\"dropdown\"";
 			$subviewSign = ' <span class="caret"></span>';
+		} else {
+			if(count($childrens)){
+			  $treeview = " class=\"dropdown-submenu\"";
+			  $treeview2 = " class=\"dropdown-toggle\" data-toggle=\"dropdown\"";
+			}
 		}
 		$active_str = '';
 		if($active) {
