@@ -8,7 +8,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Dwij\Laraadmin\Models\Module;
 
-class CreateAtividadesTable extends Migration
+class CreateCalendarEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,8 +17,11 @@ class CreateAtividadesTable extends Migration
      */
     public function up()
     {
-        Module::generate("Atividades", 'atividades', 'descricao', 'fa-bicycle', [
-            ["descricao", "Descrição", "String", true, "", 0, 256, true],
+        Module::generate("Calendar_events", 'calendar_events', 'title', 'fa-calendar', [
+            ["title", "title", "String", false, "", 0, 100, true],
+            ["allday", "allday", "Checkbox", false, "", 0, 0, false],
+            ["start", "start", "Datetime", false, "", 0, 0, true],
+            ["end", "end", "Datetime", false, "", 0, 0, true],
         ]);
 		
 		/*
@@ -64,8 +67,8 @@ class CreateAtividadesTable extends Migration
      */
     public function down()
     {
-        if (Schema::hasTable('atividades')) {
-            Schema::drop('atividades');
+        if (Schema::hasTable('calendar_events')) {
+            Schema::drop('calendar_events');
         }
     }
 }

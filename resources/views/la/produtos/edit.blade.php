@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
 @section("contentheader_title")
-	<a href="{{ url(config('laraadmin.adminRoute') . '/atividades') }}">Atividade</a> :
+	<a href="{{ url(config('laraadmin.adminRoute') . '/produtos') }}">Produto</a> :
 @endsection
-@section("contentheader_description", $atividade->$view_col)
-@section("section", "Atividades")
-@section("section_url", url(config('laraadmin.adminRoute') . '/atividades'))
+@section("contentheader_description", $produto->$view_col)
+@section("section", "Produtos")
+@section("section_url", url(config('laraadmin.adminRoute') . '/produtos'))
 @section("sub_section", "Editar")
 
-@section("htmlheader_title", "Editar Atividades: ".$atividade->$view_col)
+@section("htmlheader_title", "Editar Produtos: ".$produto->$view_col)
 
 @section("main-content")
 
@@ -29,15 +29,16 @@
 	<div class="box-body">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				{!! Form::model($atividade, ['route' => [config('laraadmin.adminRoute') . '.atividades.update', $atividade->id ], 'method'=>'PUT', 'id' => 'atividade-edit-form']) !!}
+				{!! Form::model($produto, ['route' => [config('laraadmin.adminRoute') . '.produtos.update', $produto->id ], 'method'=>'PUT', 'id' => 'produto-edit-form']) !!}
 					@la_form($module)
 					
 					{{--
 					@la_input($module, 'descricao')
+					@la_input($module, 'preco_unitario')
 					--}}
                     <br>
 					<div class="form-group">
-						{!! Form::submit( 'Atualizar', ['class'=>'btn btn-success']) !!} <button class="btn btn-default pull-right"><a href="{{ url(config('laraadmin.adminRoute') . '/atividades') }}">Cancelar</a></button>
+						{!! Form::submit( 'Atualizar', ['class'=>'btn btn-success']) !!} <button class="btn btn-default pull-right"><a href="{{ url(config('laraadmin.adminRoute') . '/produtos') }}">Cancelar</a></button>
 					</div>
 				{!! Form::close() !!}
 			</div>
@@ -50,7 +51,7 @@
 @push('scripts')
 <script>
 $(function () {
-	$("#atividade-edit-form").validate({
+	$("#produto-edit-form").validate({
 		
 	});
 });

@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
-@section("contentheader_title", "Atividades")
-@section("contentheader_description", "Pesquisa de Atividades")
-@section("section", "Atividades")
+@section("contentheader_title", "Atividade Categorias")
+@section("contentheader_description", "Pesquisa de Atividade Categorias")
+@section("section", "Atividade Categorias")
 @section("sub_section", "Listing")
-@section("htmlheader_title", "Pesquisa de Atividades")
+@section("htmlheader_title", "Pesquisa de Atividade Categorias")
 
 @section("headerElems")
-@la_access("Atividades", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Incluir Atividade</button>
+@la_access("Atividade_Categorias", "create")
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Incluir Atividade Categoria</button>
 @endla_access
 @endsection
 
@@ -45,21 +45,23 @@
 	</div>
 </div>
 
-@la_access("Atividades", "create")
+@la_access("Atividade_Categorias", "create")
 <div class="modal fade" id="AddModal" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Incluir Atividade</h4>
+				<h4 class="modal-title" id="myModalLabel">Incluir Atividade Categoria</h4>
 			</div>
-			{!! Form::open(['action' => 'LA\AtividadesController@store', 'id' => 'atividade-add-form']) !!}
+			{!! Form::open(['action' => 'LA\Atividade_CategoriasController@store', 'id' => 'atividade_categoria-add-form']) !!}
 			<div class="modal-body">
 				<div class="box-body">
                     @la_form($module)
 					
 					{{--
 					@la_input($module, 'descricao')
+					@la_input($module, 'atividade_id')
+					@la_input($module, 'mensalidade')
 					--}}
 				</div>
 			</div>
@@ -86,7 +88,7 @@ $(function () {
 	$("#example1").DataTable({
 		processing: true,
         serverSide: true,
-        ajax: "{{ url(config('laraadmin.adminRoute') . '/atividade_dt_ajax') }}",
+        ajax: "{{ url(config('laraadmin.adminRoute') . '/atividade_categoria_dt_ajax') }}",
 		language: {
 			lengthMenu: "_MENU_",
 			search: "_INPUT_",
@@ -97,7 +99,7 @@ $(function () {
 		columnDefs: [ { orderable: false, targets: [-1] }],
 		@endif
 	});
-	$("#atividade-add-form").validate({
+	$("#atividade_categoria-add-form").validate({
 		
 	});
 });

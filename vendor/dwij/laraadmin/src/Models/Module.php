@@ -896,6 +896,7 @@ class Module extends Model
 				$row->id = $old_row->id;
 			}
 			$row = Module::processDBRow($module, $request, $row);
+
 			$row->save();
 			return $row->id;
 		} else {
@@ -943,6 +944,9 @@ class Module extends Model
 							$d2 = date_parse_from_format("d/m/Y",$date);
 							$request->{$field['colname']} = date("Y-m-d", strtotime($d2['year']."-".$d2['month']."-".$d2['day']));
 						}
+						else {
+							$request->{$field['colname']} = null;
+						}
 						$row->{$field['colname']} = $request->{$field['colname']};
 						break;
 					case 'Datetime':
@@ -951,6 +955,9 @@ class Module extends Model
 							$date = $request->{$field['colname']};
 							$d2 = date_parse_from_format("d/m/Y h:i A",$date);
 							$request->{$field['colname']} = date("Y-m-d H:i:s", strtotime($d2['year']."-".$d2['month']."-".$d2['day']." ".substr($date, 11)));
+						}
+						else {
+							$request->{$field['colname']} = null;
 						}
 						$row->{$field['colname']} = $request->{$field['colname']};
 						break;

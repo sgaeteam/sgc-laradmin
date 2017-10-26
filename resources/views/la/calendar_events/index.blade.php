@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
-@section("contentheader_title", "Atividades")
-@section("contentheader_description", "Pesquisa de Atividades")
-@section("section", "Atividades")
+@section("contentheader_title", "Eventos")
+@section("contentheader_description", "Pesquisa de Eventos")
+@section("section", "Eventos")
 @section("sub_section", "Listing")
-@section("htmlheader_title", "Pesquisa de Atividades")
+@section("htmlheader_title", "Pesquisa de Eventos")
 
 @section("headerElems")
-@la_access("Atividades", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Incluir Atividade</button>
+@la_access("Calendar_events", "create")
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Incluir Evento</button>
 @endla_access
 @endsection
 
@@ -45,21 +45,24 @@
 	</div>
 </div>
 
-@la_access("Atividades", "create")
+@la_access("Calendar_events", "create")
 <div class="modal fade" id="AddModal" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Incluir Atividade</h4>
+				<h4 class="modal-title" id="myModalLabel">Incluir Evento</h4>
 			</div>
-			{!! Form::open(['action' => 'LA\AtividadesController@store', 'id' => 'atividade-add-form']) !!}
+			{!! Form::open(['action' => 'LA\Calendar_eventsController@store', 'id' => 'calendar_event-add-form']) !!}
 			<div class="modal-body">
 				<div class="box-body">
                     @la_form($module)
 					
 					{{--
-					@la_input($module, 'descricao')
+					@la_input($module, 'title')
+					@la_input($module, 'allday')
+					@la_input($module, 'start')
+					@la_input($module, 'end')
 					--}}
 				</div>
 			</div>
@@ -86,18 +89,19 @@ $(function () {
 	$("#example1").DataTable({
 		processing: true,
         serverSide: true,
-        ajax: "{{ url(config('laraadmin.adminRoute') . '/atividade_dt_ajax') }}",
+        ajax: "{{ url(config('laraadmin.adminRoute') . '/calendar_event_dt_ajax') }}",
 		language: {
 			lengthMenu: "_MENU_",
 			search: "_INPUT_",
 			searchPlaceholder: "Informe dados de uma coluna",
 			url: "{{ url('la-assets/plugins/datatables/Localisation/Portuguese-Brasil.lang')}}"
 		},
+		order: [[2, 'desc']],		
 		@if($show_actions)
 		columnDefs: [ { orderable: false, targets: [-1] }],
 		@endif
 	});
-	$("#atividade-add-form").validate({
+	$("#calendar_event-add-form").validate({
 		
 	});
 });

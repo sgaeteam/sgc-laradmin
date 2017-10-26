@@ -1,7 +1,7 @@
 @extends('la.layouts.app')
 
 @section('htmlheader_title')
-	Visualizar Atividade
+	Visualizar Atividade Categoria
 @endsection
 
 
@@ -15,7 +15,7 @@
 					<div class="profile-icon text-primary"><i class="fa {{ $module->fa_icon }}"></i></div>
 				</div>
 				<div class="col-md-9">
-					<h4 class="name">{{ $atividade->$view_col }}</h4>
+					<h4 class="name">{{ $atividade_categoria->$view_col }}</h4>
 					<div class="row stats">
 						<div class="col-md-4"><i class="fa fa-facebook"></i> 234</div>
 						<div class="col-md-4"><i class="fa fa-twitter"></i> 12</div>
@@ -81,12 +81,12 @@
 			</div>
 		</div>
 		<div class="col-md-1 actions">
-			@la_access("Atividades", "edit")
-				<a href="{{ url(config('laraadmin.adminRoute') . '/atividades/'.$atividade->id.'/edit') }}" class="btn btn-xs btn-edit btn-default"><i class="fa fa-pencil"></i></a><br>
+			@la_access("Atividade_Categorias", "edit")
+				<a href="{{ url(config('laraadmin.adminRoute') . '/atividade_categorias/'.$atividade_categoria->id.'/edit') }}" class="btn btn-xs btn-edit btn-default"><i class="fa fa-pencil"></i></a><br>
 			@endla_access
 			
-			@la_access("Atividades", "delete")
-				{{ Form::open(['route' => [config('laraadmin.adminRoute') . '.atividades.destroy', $atividade->id], 'method' => 'delete', 'style'=>'display:inline']) }}
+			@la_access("Atividade_Categorias", "delete")
+				{{ Form::open(['route' => [config('laraadmin.adminRoute') . '.atividade_categorias.destroy', $atividade_categoria->id], 'method' => 'delete', 'style'=>'display:inline']) }}
 					<button class="btn btn-default btn-delete btn-xs" type="submit"><i class="fa fa-times"></i></button>
 				{{ Form::close() }}
 			@endla_access
@@ -94,7 +94,7 @@
 	</div>
 
 	<ul data-toggle="ajax-tab" class="nav nav-tabs profile" role="tablist">
-		<li class=""><a href="{{ url(config('laraadmin.adminRoute') . '/atividades') }}" data-toggle="tooltip" data-placement="right" title="Voltar para Atividades"><i class="fa fa-chevron-left"></i></a></li>
+		<li class=""><a href="{{ url(config('laraadmin.adminRoute') . '/atividade_categorias') }}" data-toggle="tooltip" data-placement="right" title="Voltar para Atividade Categorias"><i class="fa fa-chevron-left"></i></a></li>
 		<li class="active"><a role="tab" data-toggle="tab" class="active" href="#tab-general-info" data-target="#tab-info"><i class="fa fa-bars"></i> Informa&ccedil;&otilde;es Gerais</a></li>
 		<li class=""><a role="tab" data-toggle="tab" href="#tab-timeline" data-target="#tab-timeline"><i class="fa fa-clock-o"></i> Timeline</a></li>
 	</ul>
@@ -108,6 +108,8 @@
 					</div>
 					<div class="panel-body">
 						@la_display($module, 'descricao')
+						@la_display($module, 'atividade_id')
+						@la_display($module, 'mensalidade')
 					</div>
 				</div>
 			</div>

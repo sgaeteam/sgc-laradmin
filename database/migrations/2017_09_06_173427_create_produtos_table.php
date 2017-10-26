@@ -8,7 +8,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Dwij\Laraadmin\Models\Module;
 
-class CreateAtividadesTable extends Migration
+class CreateProdutosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,8 +17,9 @@ class CreateAtividadesTable extends Migration
      */
     public function up()
     {
-        Module::generate("Atividades", 'atividades', 'descricao', 'fa-bicycle', [
-            ["descricao", "Descrição", "String", true, "", 0, 256, true],
+        Module::generate("Produtos", 'produtos', 'descricao', 'fa-clone', [
+            ["descricao", "Descrição", "String", false, "", 2, 100, true],
+            ["preco_unitario", "PrecoUnitario", "Currency", false, "", 0, 11, false],
         ]);
 		
 		/*
@@ -64,8 +65,8 @@ class CreateAtividadesTable extends Migration
      */
     public function down()
     {
-        if (Schema::hasTable('atividades')) {
-            Schema::drop('atividades');
+        if (Schema::hasTable('produtos')) {
+            Schema::drop('produtos');
         }
     }
 }

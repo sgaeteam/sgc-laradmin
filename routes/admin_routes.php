@@ -96,8 +96,28 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::resource(config('laraadmin.adminRoute') . '/atividades', 'LA\AtividadesController');
 	Route::get(config('laraadmin.adminRoute') . '/atividade_dt_ajax', 'LA\AtividadesController@dtajax');
 
-
 	/* ================== Espacos ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/espacos', 'LA\EspacosController');
 	Route::get(config('laraadmin.adminRoute') . '/espaco_dt_ajax', 'LA\EspacosController@dtajax');
+
+	/* ================== Produtos ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/produtos', 'LA\ProdutosController');
+	Route::get(config('laraadmin.adminRoute') . '/produto_dt_ajax', 'LA\ProdutosController@dtajax');
+
+	/* ================== Calendar_events ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/calendar_events', 'LA\Calendar_eventsController');
+	Route::get(config('laraadmin.adminRoute') . '/calendar_event_dt_ajax', 'LA\Calendar_eventsController@dtajax');
+	
+	/*
+	|--------------------------------------------------------------------------
+	| Application Routes
+	|--------------------------------------------------------------------------
+	|
+	| Here is where you can register all of the routes for an application.
+	| It's a breeze. Simply tell Laravel the URIs it should respond to
+	| and give it the controller to call when that URI is requested.
+	|
+	*/
+	Route::get(config('laraadmin.adminRoute') . '/calendar', ['uses' => 'SampleController@calendar']);
+
 });

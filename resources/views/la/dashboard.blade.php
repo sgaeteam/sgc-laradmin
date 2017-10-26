@@ -40,7 +40,7 @@
               <div class="small-box bg-yellow">
                 <div class="inner">
                   <h3>{{$socios}}</h3>
-                  <p>S&oacute;cios novos no m&ecirc;s</p>
+                  <p>S&oacute;cios registrados</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
